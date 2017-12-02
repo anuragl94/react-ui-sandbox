@@ -1,0 +1,33 @@
+.Editor {
+  background-color: whitesmoke;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.Editor .container {
+  position: relative;
+}
+
+.Editor textarea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  resize: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  padding: 8px;
+}
+
+.Editor pre {
+  background-color: white;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 8px;
+  visibility: hidden;
+}

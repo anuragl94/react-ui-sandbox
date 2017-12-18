@@ -3,6 +3,8 @@
   border-radius: 4px;
   font-size: 14px;
   padding: 20px;
+  line-height: 20px;
+  padding-bottom: 0;
 }
 
 .Editor .container {
@@ -16,11 +18,12 @@
   background: transparent;
   font-size: inherit;
   font-family: inherit;
+  line-height: inherit;
   resize: none;
   margin: 0;
   padding: 0;
   border: none;
-  padding: 8px;
+  outline: none;
 }
 
 .Editor pre {
@@ -28,6 +31,9 @@
   font-family: inherit;
   font-size: inherit;
   margin: 0;
-  padding: 8px;
+  padding: 0;
   visibility: hidden;
+  line-height: inherit;
+  padding-bottom: 20px;
+  min-width: 10em;
 }

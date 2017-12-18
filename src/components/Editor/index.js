@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getNestedState, updateStateRecursively } from './stateManagement'
 
 import './style.css'
 
@@ -16,15 +17,10 @@ class Editor extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      string: JSON.stringify(props.state, 2, 2)
+      string: JSON.stringify(props.value, 2, 2)
     }
     this.handleChange = this.handleChange.bind(this)
   }
-  // componentWillReceiveProps (props) {
-  //   this.setState({
-  //     string: JSON.stringify(props.state, 2, 2)
-  //   })
-  // }
   handleChange (e) {
     e.preventDefault()
     let { props } = this
@@ -37,6 +33,11 @@ class Editor extends Component {
         value: state
       })
     }
+  }
+  componentWillReceiveProps (newProps) {
+    newProps.value && this.setState({
+      string: JSON.stringify(newProps.value, 2, 2)
+    })
   }
   render () {
     return (
@@ -62,9 +63,14 @@ class Editor extends Component {
 
 export default Editor
 
-export function changeHandler ({ keys, value }) {
-  if (!keys) {
-    // If keys are specified, the state update is selectively nested
-    this.setState(value)
+function generateStateBindings (keys = []) {
+  // The context must be bound to the component that uses it
+  return {
+    value: getNestedState.call(this, keys),
+    onChange: (value) => { updateStateRecursively.call(this, keys, value) }
   }
+}
+
+export {
+  generateStateBindings
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Editor, { changeHandler } from './lib/Editor'
+import Editor, { generateStateBindings } from './components/Editor'
+import Sandbox from './components/Sandbox'
 
 import logo from './logo.svg'
 import './App.css'
@@ -12,6 +13,7 @@ class App extends Component {
       logo_url: logo,
       rotation_speed: '20000ms'
     }
+    this.generateStateBindings = generateStateBindings.bind(this)
   }
   render () {
     return (
@@ -25,7 +27,12 @@ class App extends Component {
           <h1 className='App-title'>{this.state.title}</h1>
         </header>
         <div className='App-intro'>
-          <Editor state={this.state} onChange={changeHandler.bind(this)} />
+          <Editor {...this.generateStateBindings()} />
+        </div>
+        <hr />
+        <h1>Demo</h1>
+        <div id='demo'>
+          <Sandbox />
         </div>
       </div>
     )

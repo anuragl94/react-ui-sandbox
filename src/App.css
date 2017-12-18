@@ -31,3 +31,8 @@ body * {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#demo {
+  max-width: 1000px;
+  margin: auto;
+}

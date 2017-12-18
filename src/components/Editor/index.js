@@ -29,9 +29,7 @@ class Editor extends Component {
     })
     let state = JSONfromString(e.target.value)
     if (state && props.onChange) {
-      props.onChange({
-        value: state
-      })
+      props.onChange(state)
     }
   }
   componentWillReceiveProps (newProps) {

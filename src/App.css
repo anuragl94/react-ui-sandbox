@@ -12,19 +12,34 @@ body * {
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 100px;
   padding: 20px;
   color: white;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-title {
   font-size: 1.5em;
+  margin: 0;
 }
 
 .App-intro {
   max-width: 600px;
   margin: 20px auto;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+.App {
+  font-family: 'Fira Sans';
+}
+
+.App * {
+  font-family: inherit;
 }
 
 @keyframes App-logo-spin {

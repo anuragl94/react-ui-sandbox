@@ -5,8 +5,8 @@ import { Text, Number } from '../Inputs'
 import './style.css'
 
 const mapping = {
-  1: Text,
-  2: Number
+  'INPUT.TEXT': Text,
+  'INPUT.NUMBER': Number
 }
 
 const sampleData = {
@@ -15,8 +15,8 @@ const sampleData = {
 }
 
 const sampleUI = {
-  name: 1,
-  age: 2
+  name: 'INPUT.TEXT',
+  age: 'INPUT.NUMBER'
 }
 
 class Sandbox extends Component {
@@ -44,7 +44,7 @@ class Sandbox extends Component {
         </div>
         <div className='mockup-area'>
           {Object.keys(this.state.ui).map((key, index) => {
-            let Input = mapping[this.state.ui[key]]
+            let Input = mapping[this.state.ui[key]] || Text
             return (
               <div className='input-wrap' key={index}>
                 <Input {...this.generateStateBindings(['data', key])} />
